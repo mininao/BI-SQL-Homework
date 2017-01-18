@@ -30,7 +30,7 @@ Videoview   |5000
 
 ## Indicateurs
 
-1. [Indicateurs Simples](#indicateurs-Simples)
+1. [Indicateurs Simples](#indicateurs-simples)
   - [Vidéos les plus vues](#vidéos-les-plus-vues)
   - [Pubs qui poussent à cliquer](#pubs-qui-poussent-à-cliquer)
   - [Chaînes avec le plus d'abonnés](#chaînes-avec-le-plus-dabonnés)
