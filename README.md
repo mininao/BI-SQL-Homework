@@ -30,18 +30,18 @@ Videoview   |5000
 
 ## Indicateurs
 
-1. [Indicateurs Simples](#Indicateurs-Simples)
-  - [Vidéos les plus vues](#Vidéos-les-plus-vues)
-  - [Pubs qui poussent à cliquer](#Pubs-qui-poussent-à-cliquer)
-  - [Chaînes avec le plus d'abonnés](#Chaînes-avec-le-plus-dabonnés)
-2. [Indicateurs Moyens](#Indicateurs-Moyens)
-  - [Vidéos les plus populaires](#Vidéos-les-plus-populaires)
-  - [Vidéos qui rapportent le plus d'argent](#Vidéos-qui-rapportent-le-plus-dargent)
-  - [Genre de vidéos qui poussent à les regarder en entier](#Genre-de-vidéos-qui-poussent-à-les-regarder-en-entier)
-3. [Indicateurs Difficiles](#Indicateurs-Difficiles)
-  - [Vidéos les plus populaires avec pondération temporelle](#Vidéos-les-plus-populaires-avec-pondération-temporelle)
-  - [Chaines qui rapportent le plus d'argent](#Chaines-qui-rapportent-le-plus-dargent)
-  - [Chaines qui poussent à rester sur youtube](#Chaines-qui-poussent-à-rester-sur-youtube)
+1. [Indicateurs Simples](#indicateurs-Simples)
+  - [Vidéos les plus vues](#vidéos-les-plus-vues)
+  - [Pubs qui poussent à cliquer](#pubs-qui-poussent-à-cliquer)
+  - [Chaînes avec le plus d'abonnés](#chaînes-avec-le-plus-dabonnés)
+2. [Indicateurs Moyens](#indicateurs-moyens)
+  - [Vidéos les plus populaires](#vidéos-les-plus-populaires)
+  - [Vidéos qui rapportent le plus d'argent](#vidéos-qui-rapportent-le-plus-dargent)
+  - [Genre de vidéos qui poussent à les regarder en entier](#genre-de-vidéos-qui-poussent-à-les-regarder-en-entier)
+3. [Indicateurs Difficiles](#indicateurs-difficiles)
+  - [Vidéos les plus populaires avec pondération temporelle](#vidéos-les-plus-populaires-avec-pondération-temporelle)
+  - [Chaines qui rapportent le plus d'argent](#chaines-qui-rapportent-le-plus-dargent)
+  - [Chaines qui poussent à rester sur youtube](#chaines-qui-poussent-à-rester-sur-youtube)
 
 ### Indicateurs Simples
 
