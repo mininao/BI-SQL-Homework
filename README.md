@@ -47,7 +47,7 @@ Videoview   |5000
 
 #### Vidéos les plus vues
 
-''''sql
+```sql
 SELECT Video.video_id, Video.name, COUNT(Videoview.videoview_id) AS Vues
 FROM Videoview
 INNER JOIN Interaction
@@ -58,11 +58,11 @@ AND Interaction.start_date BETWEEN date_sub(now(),INTERVAL 1 WEEK) AND now()
 GROUP BY Video.video_id
 ORDER BY Vues DESC, Video.name ASC
 LIMIT 12;
-''''
+```
 
 #### Pubs qui poussent à cliquer
 
-''''sql
+```sql
 SELECT S1.publicite_id, S1.name, S2.Clics/S1.Vues AS Pourcentage
 FROM (SELECT Publicite.name,Publicite.publicite_id, COUNT(Pubview.pubview_id) AS Vues
 FROM Pubview
@@ -78,11 +78,11 @@ WHERE S1.publicite_id = S2.publicite_id
 GROUP BY S1.publicite_id
 ORDER BY Pourcentage DESC
 LIMIT 12;
-''''
+```
 
 #### Chaînes avec le plus d'abonnés
 
-''''sql
+```sql
 SELECT Channel.channel_id, Channel.channel_name, COUNT(Subscription.subscription_id) AS Subs
 FROM Subscription
 INNER JOIN Channel
@@ -90,13 +90,13 @@ WHERE Subscription.channel_id = Channel.channel_id AND Subscription.end_date IS 
 GROUP BY Subscription.channel_id
 ORDER BY Subs DESC, Channel.channel_name ASC
 LIMIT 10;
-''''
+```
 
 ### Indicateurs Moyens
 
 #### Vidéos les plus populaires
 
-''''sql
+```sql
 SELECT S1.video_id, S1.name, ((3*S1.Comments + S2.Likes)*100/S3.`Views` + S3.`Views`) AS Popularite, S1.Comments, S2.Likes, S3.`Views`
 FROM(SELECT Video.video_id, Video.name, COUNT(Comment.comment_id) AS Comments
 FROM Comment
@@ -122,11 +122,11 @@ GROUP BY Interaction.video_id) AS S3
 WHERE S1.video_id = S2.video_id AND S2.video_id = S3.video_id
 ORDER BY Popularite DESC
 LIMIT 12;
-''''
+```
 
 #### Vidéos qui rapportent le plus d'argent
 
-''''sql
+```sql
 Select Video.video_id,Video.name,
 COUNT(S1.interaction_id) AS PubViews,
 SUM(S1.clicked) AS PubClics,
@@ -144,11 +144,11 @@ INNER JOIN Video ON Interaction.video_id = Video.video_id
 GROUP BY Interaction.video_id
 ORDER BY TotalRevenue DESC, Video.name ASC
 LIMIT 10;
-''''
+```
 
 #### Genre de vidéos qui poussent à les regarder en entier
 
-''''sql
+```sql
 SELECT Video.genre,
 AVG(Videoview.duration / Video.duration) AS AverageViewRatio,
 AVG(Video.duration) AS AverageVideoDuration,
@@ -159,13 +159,13 @@ INNER JOIN Video ON Interaction.video_id = Video.video_id
 GROUP BY Video.genre
 ORDER BY AverageViewRatio DESC, Video.Genre ASC
 LIMIT 10;
-''''
+```
 
 ### Indicateurs Difficiles
 
 #### Vidéos les plus populaires avec pondération temporelle
 
-''''sql
+```sql
 SELECT S1.video_id, S1.name, ((3*S1.FreshComments + S2.FreshLikes)*100/S3.FreshViews + S3.FreshViews) AS FreshPopularite, S1.FreshComments, S2.FreshLikes, S3.FreshViews
 FROM(SELECT Video.video_id, Video.name, COUNT(Comment.comment_id) AS Comments,
 SUM(GREATEST(
@@ -203,11 +203,11 @@ GROUP BY Interaction.video_id) AS S3
 WHERE S1.video_id = S2.video_id AND S2.video_id = S3.video_id
 ORDER BY FreshPopularite DESC
 LIMIT 12;
-''''
+```
 
 #### Chaines qui rapportent le plus d'argent
 
-''''sql
+```sql
 Select Channel.channel_id, Channel.channel_name,
 COUNT(S1.interaction_id) AS PubViews,
 SUM(S1.sponsored) AS SponsoredPubViews,
@@ -228,11 +228,11 @@ INNER JOIN Channel ON Video.channel_id = Channel.channel_id
 GROUP BY Channel.channel_id
 ORDER BY TotalRevenue DESC, Video.name ASC
 LIMIT 10;
-''''
+```
 
 #### Chaines qui poussent à rester sur youtube
 
-''''sql
+```sql
 SELECT Channel.channel_id, Channel.channel_name,
 ViewCounter.Views,
 COUNT(Videoview.videoview_id) AS CreatedViews,
@@ -253,4 +253,4 @@ AS ViewCounter ON ViewCounter.channel_id = Channel.channel_id
 GROUP BY Channel.channel_id
 ORDER BY BounceRate ASC, Channel.channel_name ASC
 LIMIT 10;
-''''
+```
