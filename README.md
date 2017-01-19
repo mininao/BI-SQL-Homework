@@ -42,6 +42,9 @@ Videoview   |5000
   - [Vidéos les plus populaires avec pondération temporelle](#vidéos-les-plus-populaires-avec-pondération-temporelle)
   - [Chaines qui rapportent le plus d'argent](#chaines-qui-rapportent-le-plus-dargent)
   - [Chaines qui poussent à rester sur youtube](#chaines-qui-poussent-à-rester-sur-youtube)
+4. [Indicateurs DataMart](#indicateurs-datamart)
+  - [Revenu Journalier](#revenu-journalier)
+  - [Durée Journalière regardée totale](#durée-journalière-regardée-totale)
 
 ### Indicateurs Simples
 
@@ -253,4 +256,31 @@ AS ViewCounter ON ViewCounter.channel_id = Channel.channel_id
 GROUP BY Channel.channel_id
 ORDER BY BounceRate ASC, Channel.channel_name ASC
 LIMIT 10;
+```
+
+### Indicateurs DataMart
+Nous avons intégré au datamart deux indicateurs supplémentaires : le revenu publicitaire gagné chaque jour et la durée passée par tous les utilisateurs à regarder des vidéos chaque jour (en secondes).  
+
+Ces deux indicateurs devront être représentés à l'aide d'une courbe présentant le temps en abscisses et la quantité en ordonnées, comme celle-ci :  
+![Exemple de courbe](https://cloud.githubusercontent.com/assets/5511564/22107499/727a77ae-de4e-11e6-805d-8e696a764e8a.png)
+
+#### Revenu Journalier
+
+```sql
+Select date(Interaction.start_date) AS revenue_date,
+SUM(Publicite.CPV + Pubview.clicked * Publicite.CPC) AS revenue_amount
+FROM Pubview
+INNER JOIN Publicite ON Pubview.publicite_id = Publicite.publicite_id
+INNER JOIN Interaction ON Pubview.interaction_id = Interaction.interaction_id
+GROUP BY date(Interaction.start_date)
+```
+
+#### Durée Journalière regardée totale
+
+```sql
+Select date(Interaction.start_date) AS duration_date,
+SUM(Videoview.duration) AS duration_amount
+FROM Videoview
+INNER JOIN Interaction ON Videoview.interaction_id = Interaction.interaction_id
+GROUP BY date(Interaction.start_date)
 ```
